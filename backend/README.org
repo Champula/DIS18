@@ -1,0 +1,39 @@
+* DIS Project Backend
+
+** login
+param: =username=, =password=
+
+Will authenticate the user if the user is already registered
+
+** user_info
+Dumps the information stored about the authenticated user.
+
+If the user is not authenticated, returns ={"status", "message"}= where
+=status= is =false=.
+
+** channel
+*** add
+param: =name=
+
+Note: Channels can only be added if the user is authenticated
+
+On failure returns ={"status", "message"}= where status is =false= and
+=message= is the reason.
+
+*** exist
+param: =name= returns 
+
+Returned if channel exists: ={"status": true}=
+
+Returned if channel does not exist: ={"status": false}=
+
+
+*** get
+optional param: =name=
+  
+If =name= is set, =get= will return only data for the channel with the
+specified =name=. Otherwise, a list of all channels will be returned.
+
+On failure returns ={"status", "message"}= where status is =false= and
+=message= is the reason.
+
