@@ -33,5 +33,3 @@ class Channel(object):
             return False
 
         
-
-        

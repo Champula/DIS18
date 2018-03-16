@@ -3,16 +3,19 @@ import pyrebase
 import channel
 import json
 
+config_path = ""
+
 class DisApi(object):
     def __init__(self):
         config = {
-            "apiKey": "AIzaSyBIwChRqXwdITGvq2KnKrZp8DoIB0zpiWc",
+            "apiKey": "",
             "authDomain": "dis-test-146a0.firebaseapp.com",
             "databaseURL": "https://dis-test-146a0.firebaseio.com",
             "projectId": "dis-test-146a0",
             "storageBucket": "dis-test-146a0.appspot.com",
             "messagingSenderId": "502618154240"
         }
+
 
         self.firebase = pyrebase.initialize_app(config)
         self.user = None
@@ -106,4 +109,4 @@ cherrypy.config.update({
     'server.socket_host': '127.0.0.1',
     'server.socket_port': 26714,
 })
-cherrypy.quickstart(DisApi(), '/', '/home/xirov/uh/DesigningInteractiveSystems/project/backend/api.conf')
+cherrypy.quickstart(DisApi(), '/', config_path)
